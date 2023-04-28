@@ -2,77 +2,17 @@
 //
 
 #include <iostream>
-
-
-class object
-{
-	
-	int result;
-public:
-	int x;
-	int y;
-	int add(int x, int y)
-	{
-		this->x = x;
-		this->y = y;
-		this->result = this->x + this->y;
-		return this->result;
-	}
-
-};
-
-
-
-
-
+#include "Game.h"
 
 int main()
 {
 
+	Game game;
 
-	int x; 
-	int y;
-	object obj;
-	
+	while (game.isRunning())
+	{
+		game.Update();
 
-	std::cin >> x;
-	std::cin >> y;
-
-	 std::cout << "your result is : " << obj.add(x, y) << std::endl;
-
-
-
+		game.render();
+	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
