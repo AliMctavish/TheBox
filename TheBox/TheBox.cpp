@@ -3,10 +3,68 @@
 
 #include <iostream>
 
+
+class object
+{
+	
+	int result;
+public:
+	int x;
+	int y;
+	int add(int x, int y)
+	{
+		this->x = x;
+		this->y = y;
+		this->result = this->x + this->y;
+		return this->result;
+	}
+
+};
+
+
+
+
+
+
 int main()
 {
-    std::cout << "Hello World!\n";
+
+
+	int x; 
+	int y;
+	object obj;
+	
+
+	std::cin >> x;
+	std::cin >> y;
+
+	 std::cout << "your result is : " << obj.add(x, y) << std::endl;
+
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
