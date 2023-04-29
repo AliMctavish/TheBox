@@ -19,6 +19,8 @@ public :
 	void initVariables();
 	void initWindow();
 
+	void DrawBox();
+
 	void pollEvents();
 
 	void Update();

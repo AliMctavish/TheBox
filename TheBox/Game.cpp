@@ -23,6 +23,7 @@ Game::Game()
 {
 	this->initVariables();
 	this->initWindow();
+	this->DrawBox();
 }
 
 
@@ -45,6 +46,12 @@ void Game::pollEvents()
 }
 
 
+void Game::DrawBox()
+{
+
+}
+
+
 void Game::Update()
 {
 	this->pollEvents();
@@ -54,6 +61,10 @@ void Game::Update()
 void Game::render()
 {
 	this->window->clear(sf::Color::Black);
-
+	sf::RectangleShape box;
+	box.setFillColor(sf::Color::Red);
+	box.setPosition(sf::Vector2f(2, 2));
+	box.setSize(sf::Vector2f(5, 5));
+	this->window->draw(box);
 	this->window->display();
 }
