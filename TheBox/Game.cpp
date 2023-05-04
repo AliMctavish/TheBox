@@ -1,9 +1,13 @@
 #include "Game.h"
 
-
 void Game::initVariables() 
 {
 	this->window = nullptr;
+}
+
+void Game::initMap()
+{
+	this->map.CreateMap();
 }
 
 void Game::initWindow()
@@ -17,6 +21,7 @@ Game::Game()
 {
 	this->initVariables();
 	this->initWindow();
+	this->initMap();
 }
 
 Game::~Game()
@@ -37,21 +42,22 @@ void Game::pollEvents()
 	}
 }
 
-
-
-
 void Game::Update()
 {
 	this->pollEvents();
-	this->player.Update(timer);
+	this->player.Update();
 }
-
 
 void Game::render()
 {
 	this->window->clear(sf::Color::Black);
 
 	this->window->draw(this->player.playerTexture);
+
+	for (auto& drawMap : this->map.grounds)
+	{
+		this->window->draw(drawMap.groundTexture);
+	}
 
 	this->window->display();
 }

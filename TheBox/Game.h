@@ -1,6 +1,8 @@
 #pragma once
 #include "SFML/Graphics.hpp"
 #include "Player.h"
+#include "Ground.h"
+#include "Map.h"
 
 
 class Game {
@@ -10,9 +12,10 @@ public :
 	sf::RenderWindow* window;
 	sf::VideoMode videoMode;
 	sf::Event ev;
-	sf::Time timer;
 	
 	Player player = Player(20,20);
+	Ground ground = Ground(2,2);
+	Map map;
 
 	const bool isRunning()  const { return this->window->isOpen() ; }
 
@@ -22,6 +25,7 @@ public :
 
 	void initVariables();
 	void initWindow();
+	void initMap();
 
 
 	void pollEvents();

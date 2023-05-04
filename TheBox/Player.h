@@ -12,7 +12,7 @@ public:
 
 	void initVariables();
 
-	void Update(sf::Time& timer);
+	void Update();
 
 
 	void render();
