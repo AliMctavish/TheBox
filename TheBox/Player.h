@@ -7,6 +7,8 @@ public:
 	sf::Vector2f playerPos;
 
 	sf::RectangleShape playerTexture;
+	bool collided = false;
+	int playerMovingOnX, playerMovingOnY;
 
 	Player(float x , float y); 
 
