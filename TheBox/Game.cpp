@@ -15,6 +15,7 @@ void Game::initWindow()
 	this->videoMode.height = 600;
 	this->videoMode.width = 1200;
 	this->window = new sf::RenderWindow(this->videoMode, "The Box Game", sf::Style::Titlebar | sf::Style::Close);
+	this->window->setFramerateLimit(144);
 }
 
 Game::Game()
@@ -46,6 +47,7 @@ void Game::Update()
 {
 	this->pollEvents();
 	this->player.Update();
+	this->physics.GroundColliders(this->map , this->player);
 }
 
 void Game::render()

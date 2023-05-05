@@ -13,11 +13,11 @@ Player::Player(float x, float y)
 void Player::Update()
 {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-		this->playerTexture.move(-0.1 , 0);
+		this->playerTexture.move(-2, 0);
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-		this->playerTexture.move(0.1 , 0);
+		this->playerTexture.move(2 , 0);
 
-	this->playerTexture.move(0, 0.1);
+	this->playerTexture.move(0, 1);
 
 }
 

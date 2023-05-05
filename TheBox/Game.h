@@ -3,6 +3,7 @@
 #include "Player.h"
 #include "Ground.h"
 #include "Map.h"
+#include "Physics.h"
 
 
 class Game {
@@ -16,6 +17,8 @@ public :
 	Player player = Player(20,20);
 	Ground ground = Ground(2,2);
 	Map map;
+	Physics physics;
+	
 
 	const bool isRunning()  const { return this->window->isOpen() ; }
 
@@ -27,11 +30,9 @@ public :
 	void initWindow();
 	void initMap();
 
-
 	void pollEvents();
 
 	void Update();
 
 	void render();
-
 };
