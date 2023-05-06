@@ -13,7 +13,7 @@ public :
 	sf::RenderWindow* window;
 	sf::VideoMode videoMode;
 	sf::Event ev;
-	
+	sf::Font myFont;
 	Player player = Player(20,20);
 	Ground ground = Ground(2,2);
 	Map map;

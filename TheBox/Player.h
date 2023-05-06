@@ -5,7 +5,7 @@ class Player {
 public: 
 
 	sf::Vector2f playerPos;
-
+	sf::Color playerColor = sf::Color::Blue;
 	sf::RectangleShape playerTexture;
 	bool collided = false;
 	int playerMovingOnX, playerMovingOnY;

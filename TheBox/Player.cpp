@@ -4,17 +4,18 @@ void Player::initVariables()
 {
 	this->playerMovingOnX = 2;
 	this->playerMovingOnY = 2;
+	this->playerColor = sf::Color::Blue;
 }
 
 
 Player::Player(float x, float y)
 {
+	this->initVariables();
 	this->playerTexture.setPosition(x, y);
 	this->playerTexture.setOutlineColor(sf::Color::White);
 	this->playerTexture.setOutlineThickness(2);
 	this->playerTexture.setSize(sf::Vector2f(50, 50));
-	this->playerTexture.setFillColor(sf::Color::Blue);
-	this->initVariables();
+	this->playerTexture.setFillColor(this->playerColor);
 }
 
 void Player::Update()

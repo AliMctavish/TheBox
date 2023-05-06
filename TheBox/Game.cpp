@@ -3,6 +3,10 @@
 void Game::initVariables() 
 {
 	this->window = nullptr;
+	if (!this->myFont.loadFromFile("Roboto-Regular.ttf"))
+	{
+		std::cout << "file not loaded";
+	}
 }
 
 void Game::initMap()
@@ -47,7 +51,14 @@ void Game::Update()
 {
 	this->pollEvents();
 	this->player.Update();
-	this->physics.GroundColliders(this->map , this->player);
+	bool collided =  this->physics.isCollided(this->map , this->player);
+	if (collided == true)
+	{
+		player.playerTexture.setFillColor(sf::Color::Red);
+	}
+	else {
+		player.playerTexture.setFillColor(sf::Color::Blue);
+	}
 }
 
 void Game::render()
