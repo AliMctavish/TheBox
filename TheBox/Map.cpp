@@ -4,7 +4,7 @@
 void Map::CreateMap()
 {
 	
-	std::vector<std::string> map = Map::maps(1);
+	std::vector<std::string> map = Map::maps(3);
 
 	int countX(1);
 	int countY(1);
