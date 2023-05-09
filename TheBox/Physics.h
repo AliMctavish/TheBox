@@ -5,6 +5,5 @@
 
 class Physics {
 public :
-	void GroundColliders(Map& map , Player& player);
 	bool isCollided(Map& map, Player& player);
 };

@@ -19,6 +19,10 @@ public :
 	Map map;
 	Physics physics;
 	
+	//FPS COUNTER
+	sf::Clock clock;
+	float lastTime = 0;
+	
 
 	const bool isRunning()  const { return this->window->isOpen() ; }
 

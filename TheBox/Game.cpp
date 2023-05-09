@@ -59,6 +59,7 @@ void Game::Update()
 	else {
 		player.playerTexture.setFillColor(sf::Color::Blue);
 	}
+	
 }
 
 void Game::render()
@@ -72,5 +73,9 @@ void Game::render()
 		this->window->draw(drawMap.groundTexture);
 	}
 
+	float currentTime = this->clock.restart().asSeconds();
+	float fps = 1.f / (currentTime - lastTime);
+	lastTime = currentTime * 10000;
+	std::cout << "fps : " << lastTime << std::endl;
 	this->window->display();
 }
