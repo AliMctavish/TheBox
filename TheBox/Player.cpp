@@ -7,7 +7,6 @@ void Player::initVariables()
 	this->playerMovingOnY = 2;
 	this->playerColor = sf::Color::Blue;
 	this->clickCoolDown = 2;
-	this->clickTimer.getElapsedTime();
 }
 
 
@@ -23,11 +22,14 @@ Player::Player(float x, float y)
 
 void Player::Update(Map& map)
 {
+	/*IF WE CLICKED THE "E" BUTTON WE WILL
+	SPAWN AN ELEMENT IN THE PLAYER'S POSITION*/
+
 	if (this->isClicked)
 	{
 		this->clickCoolDown = (int)this->clickTimer.getElapsedTime().asSeconds();
 
-		if (this->clickCoolDown > 2)
+		if (this->clickCoolDown > 1)
 		{
 			this->clickTimer.restart();
 			this->clickCoolDown = 0;
@@ -35,7 +37,7 @@ void Player::Update(Map& map)
 		}
 	}
 
-
+	//PLAYER MOVEMENTS
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 		this->playerTexture.move(-this->playerMovingOnX, 0);
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
@@ -44,17 +46,13 @@ void Player::Update(Map& map)
 		this->playerTexture.move(0, -this->playerMovingOnY);
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
 		this->playerTexture.move(0, this->playerMovingOnY);
+
+	//ADDING BOX ON CLICKING "E" BUTTON
  	if (sf::Keyboard::isKeyPressed(sf::Keyboard::E) && !this->isClicked )
 	{
 		this->isClicked = true;
 		Ground ground(this->playerTexture.getPosition().x, this->playerTexture.getPosition().y);
 		map.grounds.push_back(ground);
-	}
-
-
-	if (this->collided)
-	{
-
 	}
 }
 
