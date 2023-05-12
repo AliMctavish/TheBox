@@ -1,5 +1,8 @@
 #pragma once
 #include "SFML/Graphics.hpp"
+#include "Map.h"
+#include "Ground.h"
+
 
 class Player {
 public: 
@@ -7,14 +10,18 @@ public:
 	sf::Vector2f playerPos;
 	sf::Color playerColor = sf::Color::Blue;
 	sf::RectangleShape playerTexture;
-	bool collided = false;
-	int playerMovingOnX, playerMovingOnY;
+	sf::Clock clickTimer;
 
+
+	bool collided = false;
+	bool isClicked = false;
+	int clickCoolDown;
+	int playerMovingOnX, playerMovingOnY;
 	Player(float x , float y); 
 
 	void initVariables();
 
-	void Update();
+	void Update(Map& map);
 
 
 	void render();

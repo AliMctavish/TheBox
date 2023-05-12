@@ -5,7 +5,6 @@
 #include "Map.h"
 #include "Physics.h"
 
-
 class Game {
 
 public :
