@@ -28,7 +28,10 @@ public:
 	//INIT VARIABLES
 	void initVariables();
 
+	void PlayerControls(Map& map);
+
+
 	//UPDATE METHODS
-	void Update(Map& map);
+	void Update();
 	void render();
 };

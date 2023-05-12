@@ -50,7 +50,8 @@ void Game::pollEvents()
 void Game::Update()
 {
 	this->pollEvents();
-	this->player.Update(this->map);
+	this->player.Update();
+	this->player.PlayerControles(this->map);
 	bool collided =  this->physics.isCollided(this->map , this->player);
 	if (collided == true)
 	{

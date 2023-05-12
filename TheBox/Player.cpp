@@ -20,7 +20,7 @@ Player::Player(float x, float y)
 	this->playerTexture.setFillColor(this->playerColor);
 }
 
-void Player::Update(Map& map)
+void Player::Update()
 {
 	/*IF WE CLICKED THE "E" BUTTON WE WILL
 	SPAWN AN ELEMENT IN THE PLAYER'S POSITION*/
@@ -37,6 +37,10 @@ void Player::Update(Map& map)
 		}
 	}
 
+}
+
+void Player::PlayerControls(Map& map)
+{
 	//PLAYER MOVEMENTS
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 		this->playerTexture.move(-this->playerMovingOnX, 0);
@@ -48,7 +52,7 @@ void Player::Update(Map& map)
 		this->playerTexture.move(0, this->playerMovingOnY);
 
 	//ADDING BOX ON CLICKING "E" BUTTON
- 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::E) && !this->isClicked )
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::E) && !this->isClicked)
 	{
 		this->isClicked = true;
 		Ground ground(this->playerTexture.getPosition().x, this->playerTexture.getPosition().y);
