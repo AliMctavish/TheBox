@@ -10,12 +10,13 @@
 
 class vectors {
 public:
-	static std::vector<obj> testVector;
+	static std::vector<obj*> testVector;
+	int value;
 };
 
 class obj {
 public:
-	int number = 0;
+ 	int number = 0;
 };
 
 
