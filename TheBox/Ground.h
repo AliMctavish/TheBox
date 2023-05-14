@@ -2,6 +2,7 @@
 #include "SFML/Graphics.hpp"
 #include <iostream>
 #include <vector>
+#include "Map.h"
 
 
 class Ground {
@@ -11,6 +12,7 @@ public :
 
 
 	Ground(int x , int y);
+	void Update();
 };
 
 

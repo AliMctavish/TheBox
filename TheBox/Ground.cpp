@@ -11,6 +11,15 @@ Ground::Ground(int x , int y)
 }
 
 
+void Ground::Update()
+{
+	//for (auto& ground : Map::grounds)
+	//{
+
+	//}
+}
+
+
 
 
 

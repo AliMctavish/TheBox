@@ -34,12 +34,12 @@ void Player::Update()
 			this->clickTimer.restart();
 			this->clickCoolDown = 0;
 			this->isClicked = false;
-		}
+ 		}
 	}
 
 }
 
-void Player::PlayerControls(Map& map)
+void Player::PlayerControls()
 {
 	//PLAYER MOVEMENTS
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
@@ -56,7 +56,7 @@ void Player::PlayerControls(Map& map)
 	{
 		this->isClicked = true;
 		Ground ground(this->playerTexture.getPosition().x, this->playerTexture.getPosition().y);
-		map.grounds.push_back(ground);
+		Map::grounds.push_back(ground);
 	}
 }
 

@@ -28,7 +28,7 @@ public:
 	//INIT VARIABLES
 	void initVariables();
 
-	void PlayerControls(Map& map);
+	void PlayerControls();
 
 
 	//UPDATE METHODS

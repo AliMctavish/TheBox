@@ -51,7 +51,7 @@ void Game::Update()
 {
 	this->pollEvents();
 	this->player.Update();
-	this->player.PlayerControles(this->map);
+	this->player.PlayerControls();
 	bool collided =  this->physics.isCollided(this->map , this->player);
 	if (collided == true)
 	{
@@ -69,7 +69,7 @@ void Game::render()
 
 	this->window->draw(this->player.playerTexture);
 
-	for (auto& drawMap : this->map.grounds)
+	for (auto& drawMap : Map::grounds)
 	{
 		this->window->draw(drawMap.groundTexture);
 	}
