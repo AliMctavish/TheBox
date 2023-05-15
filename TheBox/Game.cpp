@@ -69,7 +69,7 @@ void Game::render()
 
 	this->window->draw(this->player.playerTexture);
 
-	for (auto& drawMap : Map::grounds)
+	for (auto& drawMap : map.grounds)
 	{
 		this->window->draw(drawMap.groundTexture);
 	}

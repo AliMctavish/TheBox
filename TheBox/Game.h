@@ -2,8 +2,8 @@
 #include "SFML/Graphics.hpp"
 #include "Player.h"
 #include "Ground.h"
-#include "Map.h"
 #include "Physics.h"
+#include "Map.h"
 
 class Game {
 

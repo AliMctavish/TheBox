@@ -7,26 +7,12 @@
 
 
 
-
-class vectors {
-public:
-	static std::vector<obj*> testVector;
-	int value;
-};
-
-class obj {
-public:
- 	int number = 0;
-};
-
-
-
 int main()
 {
-	/*Game game;
+	Game game;
 	while (game.isRunning())
 	{
 		game.Update();
 		game.render();
-	}*/
+	}
 }

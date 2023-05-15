@@ -56,7 +56,6 @@ void Player::PlayerControls()
 	{
 		this->isClicked = true;
 		Ground ground(this->playerTexture.getPosition().x, this->playerTexture.getPosition().y);
-		Map::grounds.push_back(ground);
 	}
 }
 

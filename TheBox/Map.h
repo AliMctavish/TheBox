@@ -1,11 +1,11 @@
 #pragma once
 #include "SFML/Graphics.hpp"
-#include <vector>
 #include "Ground.h"
+#include <vector>
 
 class Map {
 public : 
-	static std::vector<Ground> grounds;
+	std::vector<Ground> grounds;
 	void CreateMap();
 	std::vector<std::string> maps(int level);
 };

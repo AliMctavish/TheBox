@@ -2,7 +2,7 @@
 
 bool Physics::isCollided(Map& map, Player& player)
 {
-	for (auto& ground : Map::grounds)
+	for (auto& ground : map.grounds)
 	{
 		int leftRect1 = ground.groundTexture.getPosition().x;
 		int rightRect1 = ground.groundTexture.getPosition().x + 50;
