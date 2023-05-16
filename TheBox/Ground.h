@@ -2,7 +2,6 @@
 #include "SFML/Graphics.hpp"
 #include <iostream>
 #include <vector>
-#include "Map.h"
 
 
 class Ground {

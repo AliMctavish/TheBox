@@ -3,7 +3,6 @@
 
 void Map::CreateMap()
 {
-	
 	std::vector<std::string> map = Map::maps(1);
 
 	int countX(1);

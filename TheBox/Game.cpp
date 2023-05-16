@@ -73,6 +73,7 @@ void Game::render()
 	{
 		this->window->draw(drawMap.groundTexture);
 	}
+	
 
 	float currentTime = this->clock.restart().asSeconds();
 	float fps = 1.f / (currentTime - lastTime);
