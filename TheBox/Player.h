@@ -11,6 +11,7 @@ public:
 	sf::Vector2f playerPos;
 	sf::Color playerColor = sf::Color::Blue;
 	sf::RectangleShape playerTexture;
+	sf::Texture texture;
 	//TIME
 	sf::Clock clickTimer;
 

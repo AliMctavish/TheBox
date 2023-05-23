@@ -13,6 +13,7 @@ void Player::initVariables()
 Player::Player(float x, float y)
 {
 	this->initVariables();
+	this->texture.loadFromFile("BombTexture.png");
 	this->playerTexture.setPosition(x, y);
 	this->playerTexture.setOutlineColor(sf::Color::White);
 	this->playerTexture.setOutlineThickness(2);
@@ -50,6 +51,8 @@ void Player::PlayerControls()
 		this->playerTexture.move(0, -this->playerMovingOnY);
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
 		this->playerTexture.move(0, this->playerMovingOnY);
+
+	
 
 	//ADDING BOX ON CLICKING "E" BUTTON
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::E) && !this->isClicked)

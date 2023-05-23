@@ -3,7 +3,7 @@
 
 void Map::CreateMap()
 {
-	std::vector<std::string> map = Map::maps(1);
+	std::vector<std::string> map = Map::maps(2);
 
 	int countX(1);
 	int countY(1);
@@ -49,18 +49,17 @@ std::vector<std::string> Map::maps(int level)
 	}
 	if (level == 2)
 	{
-		map = { "........................",
-				"........................",
-				"........................",
-				"........................",
-				"........................",
-				"........................",
-				"........................",
-				"xxxxxxx.........xxxxxxxx",
-				"xxxxxxxxx.....xxxxxxxxxx",
-				"xxxxxxxxxx...xxxxxxxxxxx",
-				"xxxxxxxxxxx.xxxxxxxxxxxx",
-				"xxxxxxxxxxx.xxxxxxxxxxxx" };
+		map = { ".......xxxxx............",
+				".......x...x..xxxxxxxx..",
+				".......x.x.x..x......x..",
+				"....xxxx.x.x..x......x..",
+				".........x.x..x.xxxxxx..",
+				"...xxxxxxx.xxxx.x.......",
+				"...x............x.......",
+				"...xxxxxxxx..xxxx.......",
+				"..........x..x.........x",
+				"xxxxxxxxxxx..xxxxxxxxxxx",
+				"..........x..x.........." };
 	}
 	if (level == 3)
 	{

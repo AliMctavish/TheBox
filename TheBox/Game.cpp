@@ -1,5 +1,8 @@
 #include "Game.h"
 
+
+
+
 void Game::initVariables() 
 {
 	this->window = nullptr;
@@ -47,6 +50,15 @@ void Game::pollEvents()
 	}
 }
 
+
+void Game::AddBomb()
+{
+	Bomb bomb = Bomb(this->player.playerPos.x , this->player.playerPos.y);
+	this->bombs.push_back(bomb);
+	std::cout << "added a bomb";
+}
+
+
 void Game::Update()
 {
 	this->pollEvents();
@@ -60,6 +72,10 @@ void Game::Update()
 	else {
 		player.playerTexture.setFillColor(sf::Color::Blue);
 	}
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+		AddBomb();
+
 	
 }
 
@@ -68,6 +84,12 @@ void Game::render()
 	this->window->clear(sf::Color::Black);
 
 	this->window->draw(this->player.playerTexture);
+
+
+	for (auto& bomb : this->bombs)
+	{
+		this->window->draw(bomb.rect);
+	}
 
 	for (auto& drawMap : map.grounds)
 	{

@@ -25,14 +25,19 @@
     <ClCompile Include="maps.cpp" />
     <ClCompile Include="Physics.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Bomb.cpp" />
     <ClCompile Include="TheBox.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Bomb.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Ground.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="Physics.h" />
     <ClInclude Include="Player.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\..\..\..\Desktop\BombTexture.png" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
