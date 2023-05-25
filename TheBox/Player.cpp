@@ -43,13 +43,13 @@ void Player::Update()
 void Player::PlayerControls()
 {
 	//PLAYER MOVEMENTS
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 		this->playerTexture.move(-this->playerMovingOnX, 0);
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 		this->playerTexture.move(this->playerMovingOnX, 0);
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
 		this->playerTexture.move(0, -this->playerMovingOnY);
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 		this->playerTexture.move(0, this->playerMovingOnY);
 
 	

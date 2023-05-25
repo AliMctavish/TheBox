@@ -3,9 +3,11 @@
 
 
 
-void Game::initVariables() 
+void Game::initVariables()
 {
 	this->window = nullptr;
+	timer = clock.restart();
+
 	if (!this->myFont.loadFromFile("Roboto-Regular.ttf"))
 	{
 		std::cout << "file not loaded";
@@ -30,10 +32,13 @@ Game::Game()
 	this->initVariables();
 	this->initWindow();
 	this->initMap();
+
 }
 
 Game::~Game()
 {
+	for (auto& bomb : this->bombs)
+		delete bomb.texutre;
 	delete this->window;
 }
 
@@ -53,9 +58,9 @@ void Game::pollEvents()
 
 void Game::AddBomb()
 {
-	Bomb bomb = Bomb(this->player.playerPos.x , this->player.playerPos.y);
+	Bomb bomb = Bomb(this->player.playerTexture.getPosition().x, this->player.playerTexture.getPosition().y);
+	bomb.Planted();
 	this->bombs.push_back(bomb);
-	std::cout << "added a bomb";
 }
 
 
@@ -64,7 +69,8 @@ void Game::Update()
 	this->pollEvents();
 	this->player.Update();
 	this->player.PlayerControls();
-	bool collided =  this->physics.isCollided(this->map , this->player);
+	this->updateBombs();
+	bool collided = this->physics.isCollided(this->map, this->player);
 	if (collided == true)
 	{
 		player.playerTexture.setFillColor(sf::Color::Red);
@@ -72,19 +78,48 @@ void Game::Update()
 	else {
 		player.playerTexture.setFillColor(sf::Color::Blue);
 	}
+}	
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+void Game::updateBombs()
+{
+	for (auto& bomb : this->bombs)
+	{
+		bomb.bouncingBombTimer = bomb.bouncingClock.getElapsedTime().asMicroseconds();
+		if (bomb.bouncingBombTimer > 99000)
+		{
+		bomb.update();
+		bomb.bouncingBombTimer = 0.1f;
+		bomb.bouncingClock.restart();
+		}
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && !this->isClicked)
+	{
 		AddBomb();
+		//this->isClicked = true;
+	}
 
-	
+	if (this->isClicked)
+	{
+		std::cout << clock.getElapsedTime().asSeconds() << std::endl;
+
+		this->clickTimer = clock.getElapsedTime().asSeconds();
+
+		if (this->clickTimer > 2)
+		{
+			this->isClicked = false;
+			clock.restart();
+			this->clickTimer = 1;
+		}
+	}
 }
+
+
+
 
 void Game::render()
 {
 	this->window->clear(sf::Color::Black);
-
 	this->window->draw(this->player.playerTexture);
-
 
 	for (auto& bomb : this->bombs)
 	{
@@ -95,11 +130,11 @@ void Game::render()
 	{
 		this->window->draw(drawMap.groundTexture);
 	}
-	
 
-	float currentTime = this->clock.restart().asSeconds();
-	float fps = 1.f / (currentTime - lastTime);
-	lastTime = currentTime * 10000;
-	std::cout << "fps : " << lastTime << std::endl;
+
+	//float currentTime = this->clock.restart().asSeconds();
+	//float fps = 1.f / (currentTime - lastTime);
+	//lastTime = currentTime * 10000;
+	//std::cout << "fps : " << lastTime << std::endl;
 	this->window->display();
 }

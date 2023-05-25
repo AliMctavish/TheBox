@@ -22,12 +22,16 @@ public :
 	Ground ground = Ground(2,2);
 	Map map;
 	Physics physics;
-	Bomb bomb = Bomb(40,40);
+	sf::Clock clock;
+	sf::Clock bouncingClock;
+	sf::Time timer;
 	std::vector<Bomb> bombs;
 	
 	//FPS COUNTER
-	sf::Clock clock;
 	float lastTime = 0;
+	bool isClicked = false;
+	int clickTimer = 1;
+	float bouncingBombTimer = 0.5f; 
 	
 
 	const bool isRunning()  const { return this->window->isOpen() ; }
@@ -44,6 +48,7 @@ public :
 	void pollEvents();
 
 	void Update();
+	void updateBombs();
 
 	void render();
 };
